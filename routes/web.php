@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticuloController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -10,3 +11,5 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index']);

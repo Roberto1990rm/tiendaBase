@@ -6,6 +6,50 @@
     <title>Document</title>
     <!-- Incluir Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+   /* Estilos generales */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Configuración de Flexbox para el cuerpo de la página */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('/images/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para el contenido principal */
+.content {
+    flex: 1;  /* Ajusta para que ocupe el espacio disponible empujando el footer hacia abajo */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #343a40; /* Gris oscuro */
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+
+}
+
+/* Estilos para los enlaces dentro del footer */
+footer a {
+    color: #f8f9fa; /* Blanco suave */
+    text-decoration: none;  /* Sin subrayado */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -22,6 +66,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/about') }}">about</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/articulos') }}">Artículos en Venta</a>
+            </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -44,12 +91,47 @@
           </div>
         </div>
       </nav>
-    <!-- Contenido principal -->
-    <div class="container">
+
+
+
+      <div class="content">
         @yield('content')
     </div>
 
-    <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+        <footer class="bg-dark text-white mt-4">
+            <div class="container-fluid py-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Sección 1</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Enlace 1</a></li>
+                            <li><a href="#" class="text-white">Enlace 2</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Sección 2</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Enlace 3</a></li>
+                            <li><a href="#" class="text-white">Enlace 4</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li>Email: info@ejemplo.com</li>
+                            <li>Teléfono: 123-456-7890</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center small">©2024 Derechos Reservados</div>
+            </div>
+    </footer>
 </body>
+</html>
+    
+</body>
+
 </html>
