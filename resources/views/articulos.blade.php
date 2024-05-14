@@ -17,6 +17,7 @@
                         <h5 class="card-title">{{ $articulo->nombre }}</h5>
                         <p class="card-text">Precio: ${{ $articulo->precio }}</p>
                         <p class="card-text">Unidades: {{ $articulo->unidades }}</p>
+                        <a href="{{ route('articulos.show', $articulo->id) }}" class="btn btn-primary">Ver Detalles</a>
                     </div>
                 </div>
                 

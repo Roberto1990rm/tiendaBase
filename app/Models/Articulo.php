@@ -10,6 +10,13 @@ class Articulo extends Model
     use HasFactory;
 
      protected $table = 'articulos'; // Asegúrate de que el nombre de la tabla sea correcto
-     protected $fillable = ['nombre', 'precio', 'unidades', 'imagen']; // Ajusta los campos según tu tabla
+     protected $fillable = [
+        'nombre', 
+        'precio', 
+        'unidades', 
+        'imagen', 
+        'descripcion', 
+        'estado'
+    ];
 }
 

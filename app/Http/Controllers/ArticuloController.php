@@ -6,7 +6,9 @@ use App\Models\Articulo;
 use Illuminate\Http\Request;
 
 class ArticuloController extends Controller
-{public function index()
+{   
+
+    public function index()
     {
         $articulos = Articulo::all();
         //dd($articulos); // Esto detendrá la ejecución y mostrará los datos de los artículos en el navegador.
@@ -14,20 +16,29 @@ class ArticuloController extends Controller
     }
     
 
+    public function show($id)
+    {
+        $articulo = Articulo::findOrFail($id);
+        return view('articulos.show', compact('articulo'));
+    }
 
 
-public function create()
+
+    public function create()
 {
     return view('articulos.create');
 }
 
-public function store(Request $request)
+
+     public function store(Request $request)
 {
     $validatedData = $request->validate([
         'nombre' => 'required|max:255',
         'precio' => 'required|numeric',
         'unidades' => 'required|integer',
-        'imagen' => 'nullable|image|max:2048', // Asegúrate de validar que es una imagen y limita su tamaño
+        'imagen' => 'nullable|image|max:2048', 
+        'descripcion' => 'nullable|string',
+        'estado' => 'required|string'
     ]);
 
     $articulo = new Articulo($validatedData);
@@ -41,6 +52,17 @@ public function store(Request $request)
     $articulo->save();
 
     return redirect('/articulos')->with('success', 'Artículo guardado exitosamente');
+}
+
+
+public function buscar(Request $request)
+{
+    $query = $request->input('query');
+    $articulos = Articulo::where('nombre', 'LIKE', "%{$query}%")
+                         //->orWhere('descripcion', 'LIKE', "%{$query}%")
+                         ->get();
+
+    return view('articulos.resultados', compact('articulos'));
 }
 
 

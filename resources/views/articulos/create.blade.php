@@ -21,6 +21,17 @@
             <label for="imagen" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="imagen" name="imagen">
         </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="5"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-control" id="estado" name="estado">
+                <option value="disponible">Disponible</option>
+                <option value="no disponible">No Disponible</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
