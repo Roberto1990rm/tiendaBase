@@ -15,8 +15,10 @@
             <p class="card-text">Unidades: {{ $articulo->unidades }}</p>
             <p class="card-text">Descripción: {{ $articulo->descripcion }}</p>
             <p class="card-text">Estado: {{ $articulo->estado }}</p>
+            <p class="card-text">Creado por: {{ $articulo->user->name }}</p>
         </div>
     </div>
 </div>
 @endsection
+
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ArticuloController extends Controller
 {   
@@ -30,23 +32,24 @@ class ArticuloController extends Controller
 }
 
 
-     public function store(Request $request)
+public function store(Request $request)
 {
     $validatedData = $request->validate([
         'nombre' => 'required|max:255',
         'precio' => 'required|numeric',
         'unidades' => 'required|integer',
-        'imagen' => 'nullable|image|max:2048', 
+        'imagen' => 'nullable|image|max:2048',
         'descripcion' => 'nullable|string',
         'estado' => 'required|string'
     ]);
 
     $articulo = new Articulo($validatedData);
+    $articulo->user_id = Auth::id(); // Asignar el ID del usuario autenticado
 
     if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
         $imageName = time() . '.' . $request->imagen->extension();
         $request->imagen->move(public_path('images'), $imageName);
-        $articulo->imagen = $imageName; // Guardar el nombre de la imagen en la base de datos
+        $articulo->imagen = $imageName;
     }
 
     $articulo->save();

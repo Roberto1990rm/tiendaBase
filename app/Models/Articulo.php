@@ -9,14 +9,21 @@ class Articulo extends Model
 {
     use HasFactory;
 
-     protected $table = 'articulos'; // Asegúrate de que el nombre de la tabla sea correcto
-     protected $fillable = [
+    protected $table = 'articulos';
+
+    protected $fillable = [
         'nombre', 
         'precio', 
         'unidades', 
         'imagen', 
         'descripcion', 
-        'estado'
+        'estado',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 
