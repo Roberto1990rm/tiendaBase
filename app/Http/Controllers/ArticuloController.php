@@ -57,6 +57,19 @@ public function store(Request $request)
     return redirect('/articulos')->with('success', 'Artículo guardado exitosamente');
 }
 
+public function destroy($id)
+{
+    $articulo = Articulo::findOrFail($id);
+
+    if ($articulo->user_id !== Auth::id()) {
+        return redirect()->route('/articulos')->with('error', 'No tienes permiso para eliminar este artículo.');
+    }
+
+    $articulo->delete();
+
+    return redirect('/articulos')->with('success', 'El artículo ha sido eliminado exitosamente.');
+}
+
 
 public function buscar(Request $request)
 {

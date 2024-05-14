@@ -85,7 +85,7 @@
                             Más
                         </a>
                         <ul class="dropdown-menu">
-                            
+
                             @auth
                             <li><a href="{{ url('/articulos/create') }}" class="dropdown-item">Nuevo Artículo</a></li>
                             @endauth
@@ -137,6 +137,13 @@
         </div>
     </nav>
 
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
     <div class="content">
         @yield('content')
     </div>
@@ -169,5 +176,8 @@
             <div class="text-center small">©2024 Derechos Reservados</div>
         </div>
     </footer>
+
+     <!-- Mensaje de éxito -->
+   
 </body>
 </html>

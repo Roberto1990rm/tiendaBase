@@ -19,8 +19,15 @@
                         <p class="card-text">Unidades: {{ $articulo->unidades }}</p>
                         <a href="{{ route('articulos.show', $articulo->id) }}" class="btn btn-primary">Ver Detalles</a>
                     </div>
+                    @if ($articulo->user_id == Auth::id())
+                    <form action="{{ route('articulos.destroy', $articulo->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="ms-3 mb-2" type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                @endif
                 </div>
-                
+               
             </div>
         @endforeach
     </div>
