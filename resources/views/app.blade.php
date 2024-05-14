@@ -21,6 +21,12 @@
             background-repeat: no-repeat;
         }
 
+        .about-page {
+            background-color: #ff69b4;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
         .content {
             flex: 1;  /* Ajusta para que ocupe el espacio disponible empujando el footer hacia abajo */
             display: flex;
@@ -54,6 +60,51 @@
 
         footer a:hover {
             text-decoration: underline; /* Subrayado al pasar el mouse */
+        }
+
+        /* Estilos adicionales */
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .text-highlight {
+            color: #ff69b4; /* Relleno rosa vivo */
+            -webkit-text-stroke: 1px black; /* Contorno negro de 1 pixel */
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombreado */
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .text-highlight-yellow {
+            color: #ced364; /* Relleno rosa vivo */
+            -webkit-text-stroke: 1px black; /* Contorno negro de 1 pixel */
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombreado */
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        /* Media Query para hacer que la imagen de fondo se repita en pantallas más pequeñas */
+        @media (max-width: 768px) {
+            body {
+                background-repeat: repeat;
+            }
+        }
+
+        /* Cambiar el color de las líneas del botón de la navbar en modo móvil a amarillo */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
     </style>
 </head>

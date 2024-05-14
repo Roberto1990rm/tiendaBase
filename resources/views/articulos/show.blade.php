@@ -16,6 +16,7 @@
             <p class="card-text">Descripción: {{ $articulo->descripcion }}</p>
             <p class="card-text">Estado: {{ $articulo->estado }}</p>
             <p class="card-text">Creado por: {{ $articulo->user->name }}</p>
+            <a href="{{ url('/articulos') }}" class="btn btn-primary mt-3">Volver</a>
         </div>
     </div>
 </div>

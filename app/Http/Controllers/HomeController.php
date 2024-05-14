@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Articulo;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // Aplica el middleware de autenticación a todas las rutas excepto 'index'
+        $this->middleware('auth')->except('index');
     }
 
     /**
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $articulos = Articulo::orderBy('created_at', 'desc')->take(2)->get();
+        return view('welcome', compact('articulos'));
     }
 }
