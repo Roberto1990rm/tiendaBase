@@ -65,6 +65,9 @@ footer a:hover {
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/articulos') }}">Artículos en Venta</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/contact') }}">Contacto</a>
+            </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -72,6 +75,7 @@ footer a:hover {
                 <ul class="dropdown-menu">
                   <li><a href="{{ url('/articulos/create') }}" class="btn btn-primary">Nuevo Artículo</a>
                   </li>
+                  
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
