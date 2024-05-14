@@ -13,3 +13,5 @@ Route::get('/about', function () {
 });
 
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index']);
+Route::get('/articulos/create', [ArticuloController::class, 'create']);
+Route::post('/articulos', [ArticuloController::class, 'store']);

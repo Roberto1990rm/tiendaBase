@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Incluir Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-   /* Estilos generales */
 html, body {
     height: 100%;
     margin: 0;
 }
 
-/* Configuración de Flexbox para el cuerpo de la página */
 body {
     display: flex;
     flex-direction: column;
@@ -23,14 +22,12 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Estilos para el contenido principal */
 .content {
     flex: 1;  /* Ajusta para que ocupe el espacio disponible empujando el footer hacia abajo */
     display: flex;
     flex-direction: column;
 }
 
-/* Estilos para el footer */
 footer {
     background-color: #343a40; /* Gris oscuro */
     opacity: 0.9;
@@ -39,7 +36,6 @@ footer {
 
 }
 
-/* Estilos para los enlaces dentro del footer */
 footer a {
     color: #f8f9fa; /* Blanco suave */
     text-decoration: none;  /* Sin subrayado */
@@ -74,7 +70,8 @@ footer a:hover {
                   Dropdown
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a href="{{ url('/articulos/create') }}" class="btn btn-primary">Añadir Nuevo Artículo</a>
+                  </li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
