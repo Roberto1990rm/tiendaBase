@@ -27,14 +27,17 @@ public function store(Request $request)
         'nombre' => 'required|max:255',
         'precio' => 'required|numeric',
         'unidades' => 'required|integer',
-        'imagen' => 'nullable|url'
+        'imagen' => 'nullable|image|max:2048', // Asegúrate de validar que es una imagen y limita su tamaño
     ]);
 
-    $articulo = new Articulo();
-    $articulo->nombre = $validatedData['nombre'];
-    $articulo->precio = $validatedData['precio'];
-    $articulo->unidades = $validatedData['unidades'];
-    $articulo->imagen = $validatedData['imagen'];
+    $articulo = new Articulo($validatedData);
+
+    if ($request->hasFile('imagen') && $request->file('imagen')->isValid()) {
+        $imageName = time() . '.' . $request->imagen->extension();
+        $request->imagen->move(public_path('images'), $imageName);
+        $articulo->imagen = $imageName; // Guardar el nombre de la imagen en la base de datos
+    }
+
     $articulo->save();
 
     return redirect('/articulos')->with('success', 'Artículo guardado exitosamente');

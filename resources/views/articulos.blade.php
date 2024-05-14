@@ -8,7 +8,8 @@
             <div class="col-md-6 mb-4">
                 <div class="card">
                     @if ($articulo->imagen)
-                        <img src="{{ $articulo->imagen }}" class="card-img-top" alt="{{ $articulo->nombre }}">
+                        <img src="{{ asset('images/' . $articulo->imagen) }}" class="card-img-top" alt="{{ $articulo->nombre }}">
+
                     @else
                         <img src="https://via.placeholder.com/50" class="card-img-top" alt="No image available">
                     @endif
