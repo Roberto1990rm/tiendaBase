@@ -141,6 +141,12 @@
                             <li><a href="{{ url('/articulos/create') }}" class="dropdown-item">Nuevo Artículo</a></li>
                             @endauth
 
+                            @auth
+                            <li>
+                                <a class="dropdown-item" href="{{ route('user.panel') }}">Mis Artículos</a>
+                            </li>
+                        @endauth
+
                             <li><a class="dropdown-item" href="#">Otra acción</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Algo más aquí</a></li>
@@ -166,6 +172,7 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
+                            
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

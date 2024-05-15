@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -24,6 +25,14 @@ Route::post('/articulos', [ArticuloController::class, 'store']);
 Route::delete('/articulos/{id}', [ArticuloController::class, 'destroy'])->name('articulos.destroy');
 
 Route::get('/buscar', [ArticuloController::class, 'buscar'])->name('buscar');
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/panel', [UserController::class, 'panel'])->name('user.panel');
+});
+
 
 
 Route::get('/contact', function () {
