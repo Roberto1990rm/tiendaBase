@@ -24,6 +24,7 @@ Route::get('/articulos/{id}', [ArticuloController::class, 'show'])->name('articu
 Route::post('/articulos', [ArticuloController::class, 'store']);
 Route::delete('/articulos/{id}', [ArticuloController::class, 'destroy'])->name('articulos.destroy');
 
+Route::patch('/articulos/{id}/toggleEstado', [ArticuloController::class, 'toggleEstado'])->name('articulos.toggleEstado');
 Route::get('/buscar', [ArticuloController::class, 'buscar'])->name('buscar');
 
 

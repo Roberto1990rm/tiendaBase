@@ -25,7 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articulos = Articulo::orderBy('created_at', 'desc')->take(2)->get();
+        // Obtener solo los artículos con estado igual a 1
+        $articulos = Articulo::where('estado', 1)
+                             ->orderBy('created_at', 'desc')
+                             ->take(2)
+                             ->get();
+
         return view('welcome', compact('articulos'));
     }
+
 }
